@@ -6,20 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.RecipesModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const config_1 = require("@nestjs/config");
-const recipes_module_1 = require("./recipes/recipes.module");
-let AppModule = class AppModule {
+const recipes_controller_1 = require("./recipes.controller");
+const recipes_service_1 = require("./recipes.service");
+const axios_1 = require("@nestjs/axios");
+let RecipesModule = class RecipesModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.RecipesModule = RecipesModule;
+exports.RecipesModule = RecipesModule = __decorate([
     (0, common_1.Module)({
-        imports: [config_1.ConfigModule.forRoot({ isGlobal: true }), recipes_module_1.RecipesModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [axios_1.HttpModule],
+        controllers: [recipes_controller_1.RecipesController],
+        providers: [recipes_service_1.RecipesService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], RecipesModule);
+//# sourceMappingURL=recipes.module.js.map
