@@ -1,0 +1,15 @@
+export const recipeCategories = [
+    "Beef",
+    "Chicken",
+    "Dessert",
+    "Lamb",
+    "Miscellaneous",
+    "Pasta",
+    "Pork",
+    "Seafood",
+    "Side",
+    "Starter",
+    "Vegan",
+    "Vegetarian",
+    "Breakfast",
+];

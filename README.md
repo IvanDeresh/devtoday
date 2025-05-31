@@ -60,6 +60,11 @@ npm run dev
 
 Runs on: http://localhost:3000
 
+## client pages:
+
+-   http://localhost:3000/pages/recipes - recipes
+-   http://localhost:3000/pages/recipes/:id - recipe details
+
 ## 🧪 Features
 
 -   🔍 Recipe list page with filters (ingredient, country, category)
@@ -67,3 +72,5 @@ Runs on: http://localhost:3000
 -   🎯 Responsive design
 -   ✅ Environment-based API config
 -   🧼 Clean structure, ESLint, Prettier
+
+Thank you!

@@ -18,5 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page({ params }: Props) {
+    if (!params?.id) return null;
     return <RecipeDetailPage id={params.id} />;
 }
