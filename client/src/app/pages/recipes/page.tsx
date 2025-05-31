@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchRecipes } from "@/utils/api";
 import { useSearchParams } from "next/navigation";
+import { Recipe } from "@/types/recipe";
+import Image from "next/image";
 
 export default function RecipeListPage() {
     const searchParams = useSearchParams();
-    const [recipes, setRecipes] = useState<any[]>([]);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
 
     useEffect(() => {
         const query = searchParams.toString();
@@ -17,18 +19,22 @@ export default function RecipeListPage() {
     }, [searchParams]);
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Recipes</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:px-10 gap-4">
+        <div className="p-4 flex flex-col items-center">
+            <h1 className="text-2xl font-bold mb-4 uppercase">Recipes</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-4 xl:px-10 gap-8">
                 {recipes.map((meal) => (
                     <Link key={meal.idMeal} href={`/pages/recipes/${meal.idMeal}`}>
-                        <div className="border rounded p-2 hover:shadow">
-                            <img
+                        <div className="border rounded-xl min-w-[280px] min-h-[300px] p-2 hover:shadow">
+                            <Image
                                 src={meal.strMealThumb}
                                 alt={meal.strMeal}
+                                width={270}
+                                height={192}
                                 className="w-full h-48 object-cover rounded"
                             />
-                            <h2 className="text-xl mt-2">{meal.strMeal}</h2>
+                            <h2 className="text-xl flex items-center self-center mt-4">
+                                {meal.strMeal}
+                            </h2>
                         </div>
                     </Link>
                 ))}
